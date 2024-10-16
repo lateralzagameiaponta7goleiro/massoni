@@ -19,3 +19,10 @@ musicForm.addEventListener('submit',function(event) {
      <td>${genero}</td>
      <td>${cantor}</td>
      <td>${autoria}</td>
+     ´;
+
+     musicTableBody.appendChild(newRow);
+
+     //limpar formulário
+     musicForm.reset();
+});

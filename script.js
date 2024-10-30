@@ -1,28 +1,38 @@
-// Elemenos do DOM
-const musicForm=document.getElementByld('musicForm');
-const musicTableBody = document.querySelector('#musicTable tbody');
-const exportBtn = document.getElementByld(exportBtn);
+ // Elementos do DOM
+ const musicForm = document.getElementByld('musicForm');
+ const musicTableBody = document.querySelector('#musicTable tbody');
+ const exportBtn = document.getElementById('exportBtn');
 
-//Função para adicionar uma linha na tabela
-musicForm.addEventListener('submit',function(event) {
-     event.preventDefault();
-     const numero = document.getElementByld('numero').value;
-     const musica = document.getElementByld('musica').value;
-     const genero = document.getElementByld('genero').value;
-     const cantor = document.getElementByld('cantor').value;
-     const autoria = document.getElementByld('autoria').value;
+  //Função para adicionar uma linha na tabela
+musicForm.addEventListener('submit',function(event){
+    event.preventDefault();
 
-     const newRow = document.createElement('tr');
-     newRow.innerHTML =
-     <td>${numero}</td>
-     <td>${musica}</td>
-     <td>${genero}</td>
-     <td>${cantor}</td>
-     <td>${autoria}</td>
-     ´;
+    const numero = document.getElementById('numero').Value;
+    const musica = document.getElementById('musica').Value;
+    const genero = document.getElementById('genero').Value;
+    const cantor = document.getElementById('cantor').Value;
+    const autoria = document.getElementById('autoria').Value;
 
-     musicTableBody.appendChild(newRow);
+    const newRow = document.createElement('tr');
+    newRow.innerHTML =
+      <td>$(numero)</td>
+      <td>$(musica)</td>
+      <td>$(genero)</td>
+      <td>$(cantor)</td>
+      <td>$(autoria)</td>
+    ´;
 
-     //limpar formulário
-     musicForm.reset();
-});
+    musicTableBody.appendChild(newRow);
+
+    // limpar o formulário
+    musicForm.reset();
+  });
+
+  //Função para exportar a tabela como planilha dinâmica
+  exportBtn.addEventListener('click',function(){
+    const tableRows = document.querySelectorAll('#musicTable tr')
+    const csvContent = [];
+
+    //Extrair dados da tabela
+    tableRows.forEach(row => {
+      const rowData
